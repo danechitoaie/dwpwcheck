@@ -55,6 +55,11 @@ func main() {
 		os.Exit(1)
 	}
 
+	if res.StatusCode == 401 {
+		fmt.Println("ERROR: Invalid username or password!")
+		os.Exit(1)
+	}
+
 	resBody, err := ioutil.ReadAll(res.Body)
 	if err != nil {
 		fmt.Println("ERROR: ", err.Error())
